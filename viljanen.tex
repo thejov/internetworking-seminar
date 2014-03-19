@@ -79,13 +79,15 @@ The Physarum Optimization approach exploits the cellular computation model of th
 \subsubsection{The technical problem and its context: Wireless Sensor Networks}
 Wireless Sensor Networks consist of sensor nodes geographically distributed on an area \cite{nazi2013robust}. These sensor nodes collect data from their environment, process it by doing aggregation and filtering and forward it to other recievers in the network they are connected in. For WSNs it is important to be fault tolerant, since network failures may occurr for example due to one of its nodes running out of power. WSNs may be used in contexts of smart healthcare, disaster management, environment monitoring \cite{nazi2013robust} or even military applications \cite{liu2012physarum}.
 
+The case of researched in \cite{liu2012physarum} is one, where a certain area is populated with environment monitoring sensors. The purpose of the sensor network is to detect possible intruders in the monitored area. The goal of the paper is to find the path between two target points going through an area with the least sensor coverage and hence the least risk of being detected by the sensors. This path represents the minimal exposure path. By identifying the least coverage paths one can find the weak spots of the covered area and add the least amount of new sensors that improve its coverage the most.
+
 \subsubsection{The biological system: Physarum Polycephalum}
 Physarum polycephalum is a large, single celled amoeba-like organism, which belongs to the group of slime molds \cite{liu2012physarum}. In its body it has tube-like constructions that it uses to transfer nutrients, signals and even its own body mass. Physarum is known to avoid light. It has the ability to find optimal routes between food sources -- even if there would be a maze separating them \cite{nakagaki2000intelligence}. Considering its way of avoiding light, the optimal route means either the shortest route in a non-illuminated place, or in an inhomogenously lit environment the path with the minimum risk to be exposed to light.
 
 
 locality and parallelism
 \subsubsection{Analogies and application: The Physarum Optimization Algorithm}
-
+The analogy between Physarum finding the shortest path between food sources in a inhomogenously illuminated field and the trying to find the path with the worst sensor coverage in a Wireless Sensor Network is simple. Physarum catching light can be considered a corresponing action to an intruder being exposed to a sensor, and the food sources of Physarum resemble the target points between the path in a WSN \cite{liu2012physarum}. Using these analogies the minimal exposure path problem of the WSNs can be solved using observations from Physarum's behaviour.
 
 \section{Conclusion}
 
@@ -96,7 +98,7 @@ locality and parallelism
 \hline
                                          & \textbf{Ant Colony Optimization, A-ESR}       & \textbf{Physarum Optimization}              \\ \hline
 \textbf{View point on biological system} & High level                                    & Low level                                   \\ \hline
-\textbf{Application field}               & Computer networking, Energy efficient routing & Wireless Sensor Networks, Intrusion detection \\ \hline
+\textbf{Application field}               & Computer networking, Energy efficient routing & Wireless Sensor Networks, Intrusion detection, Maximum network coverage \\ \hline
                                          &                                               &                                             \\ \hline
 \end{tabular}
 \end{table}
