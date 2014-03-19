@@ -21,10 +21,16 @@
 %==========================================================
 
 \begin{abstract}
-\textit{Abstract will be here...}
+In nature evolution has made sure that only the fittest biological organisms and systems have survived to our day. They tend to have simple and elegant solutions to complex problems caused by challenging environmental conditions. Throughout his history man has drawn inspiration from nature's solutions to solve issues in totally different fields. In the past decades these nature and biology inspired approaches have been applied in the field of computer science and networking.
+
+Developing bio-inspired solutions is commonly divided into three steps: Finding the analogies between the contexts of the technical problem and the biological system, deepening the understanding on the biological system, and finally simplifying the biological patterns and applying them into the technical field.
+
+This paper takes a closer look on two bio-inspired networking solutions, the A-ESR algorithm, that is based on Ant Colony Optimization (AOC), and the Physarum Optimization (PO). AOC is considered to be drawn from higher level understanding of a biological system: a foraging ant colony. The A-ESR algorithm is proposed to be used in the Internet infrastructure to optimize its energy consumption. Physarum Optimization draws understanding from a lower abstraction level: the functions of a simple cellular organism. It is used to find the minimum exposure path of a wireless sensor network, i.e. the path between two points of a sensor covered area with the least coverage.
+
+This paper will look at similarities and differences between the two apporaches and consider some other possible application areas for them.
 
 \vspace{3mm}
-\noindent KEYWORDS: bio-inspired, networking
+\noindent KEYWORDS: bio-inspired, networking, Ant Colony Optimization, A-ESR, Physarum Optimization
 
 \end{abstract}
 
@@ -50,55 +56,51 @@ Biological systems often have a small set of simple rules that can be used to cr
 \section{Background}
 
 \subsection{Developing a bio-inspired approach}
-Developing a bioinspired approach for engineering issues is divided into three steps \cite{dressler2010bio}. First one needs to identify the analogies between the target technical environment and the biological system. How do the different players, structures and methods in the biological system correspond to the ones in the technical field? Are there similarities? After finding the analogies the next step is to research the biological system and try to understand it and its functions in a detailled and precise way. The third step is usually to generalize the biological model and to apply it to the chosen technical field, hence to define the bio-inspired solution.
-
-\textit{Definitions of commonly used terms here.}
+Developing a bioinspired approach for issues in the engineering field is divided into three steps \cite{dressler2010bio}. First one needs to identify the analogies between the targeted technical environment and the biological system. How do the different players, structures and methods in the biological system correspond to the ones in the technical field? Are there similarities? After finding the analogies the next step is to research the biological system and try to understand it and its functions in a detailled and precise way. The third step is usually to generalize the biological model and to apply it to the chosen technical field, hence to define the bio-inspired solution.
 
 \section{Results}
 
-In the results we will describe more closely two different bio-inspired approaches: Ant Colony Optimization and Physarum Optimization. Both are optimization algorithms based on foraging of a biological system. Ant Colony Optimization is a text book example of a bio-inspired approach based on a higher level understanding of a biological system: foraging ants. Physarum Optimization  in turn is based on lower level understanding on how simple cellular organisms work and the evolution of its behaviour \cite{liu2012physarum}.
-
-\textit{
-\begin{itemize}
-	\item Explain the technical problem and its context.
-	\item Explain the biological system
-	\item Explain the analogies of the two.
-	\item Explain the bio-inspired solution for the technical problem.
-\end{itemize}
-}
+In the results section this paper will describe more closely two different bio-inspired approaches: Ant Colony Optimization and Physarum Optimization. Both are optimization algorithms based on foraging of a biological entities. Ant Colony Optimization is a text book example of a bio-inspired approach based on a higher level understanding of a biological system: foraging ants. Physarum Optimization in turn is based on lower level understanding on how simple cellular organisms work and the evolution of its behaviour \cite{liu2012physarum}.
 
 \subsection{Ant Colony Optimization}
-A classic application of Ant Colony Optimization (ACO) was the AntNet routing protocol that was able to exploit ACO making the protocol function more efficiently and without an outside controlling unit \cite{di1998antnet}. More recently a new routing scheme called A-ESR has been proposed to make network elements and hence the whole Internet to be more energy efficient \cite{kim2012ant}, \cite{kim2011ant}. We will study the more recent application.
+Ant Colony Optimization (ACO) is a form of bio-inspired solutions from the group of Swarm Intelligence \cite{hylsberg2011bioinspired}. The writer of this paper wanted to include an example of ACO, since it is the classic example of a bio-inspired approach. One of its applications, the AntNet routing protocol, was introduced already in 1998 \cite{di1998antnet}. The protocol was able to exploit ACO in a way that made it function more efficiently and without an outside controlling unit. More recently a new routing scheme called A-ESR has been proposed to optimize network elements and hence the whole Internet more energy efficient \cite{kim2012ant}, \cite{kim2011ant}. We will study the more recent example: the A-ESR algorithm.
 
-\subsubsection{The technical problem and its context: Wireless Sensor Networks}
-...
+\subsubsection{The technical problem and its context: Energy effient routing of Internet traffic}
+The Internet infrastructure is consuming more and more energy every year. In year 2008 studies were published that showed that the Internet had a share of about 5.5\% of the worlds total energy consumption. This share was expected to grow at a rate of 20-25\% annually \cite{proceedings2008energy}. A big part of Internets power consumpiton could be cut off by optimizing network elements to be more energy-efficient \cite{andrews2010routing}. Network elements use the same amount of power regardless of whether there is a lot of traffic going through them during peak hours, or when they are in an idle state during low traffic hours \cite{gupta2007using}.
+
+\subsubsection{The biological system: Foraging ant colonies}
+\textit{TODO: add content here. already explained on a high level in the Introduction.}
+
+\subsubsection{Analogies and application: The A-ESR algorithm}
+A-ESR stands for self-adaptive energy saving routing \cite{kim2012ant}. The analogies between the foraging ant colony and Internet routing are the following: The ant colony is a rather abstract structure that exists in the network. Foraging ants are represented by so called artificial ants, that traverse thourgh the network to find out the delays between network elements and the fastest routes between two nodes. Data structures called Pheromone tables are stored in each network node. They store the desirabilities of travesing to a node i next to the current node j, when the packet destination is node j.
+
+The advantages of the A-ESR algorithm are its means to self-adjust against wrong measures and the ability to continuously keep track about the network status.
 
 \subsection{Physarum Optimization}
-The Physarum Optimization approach exploits the cellular computation model of the slime mold physarum polycephalum in wireless sensor networks (WSN) \cite{liu2012physarum}. It is used to solve the minimal exposure path problem of WSNs, which relateds to their worst case coverage. The approach is claimed to be simple and highly concurrent. It should also be useful for designing new graph-algorithms, routing protocols and Self-Organizing Network (SON) topologies.
+The Physarum Optimization approach exploits the cellular computation model of the slime mold physarum polycephalum in wireless sensor networks (WSN) \cite{liu2012physarum}. It is used to solve the minimal exposure path problem of WSNs, which relateds to their worst case coverage. The approach is claimed to be simple and highly concurrent. It should also be useful for designing new graph-algorithms, routing protocols and self-organizing network (SON) topologies.
 
-\subsubsection{The technical problem and its context: Wireless Sensor Networks}
-Wireless Sensor Networks consist of sensor nodes geographically distributed on an area \cite{nazi2013robust}. These sensor nodes collect data from their environment, process it by doing aggregation and filtering and forward it to other recievers in the network they are connected in. For WSNs it is important to be fault tolerant, since network failures may occurr for example due to one of its nodes running out of power. WSNs may be used in contexts of smart healthcare, disaster management, environment monitoring \cite{nazi2013robust} or even military applications \cite{liu2012physarum}.
+\subsubsection{The technical problem and its context: Wireless sensor networks}
+Wireless sensor networks consist of sensor nodes geographically distributed on an area \cite{nazi2013robust}. These sensor nodes collect data from their environment, process it by doing aggregation and filtering and forward it to other recievers in the network they are connected in. WSNs may be used in contexts of smart healthcare, disaster management, environment monitoring \cite{nazi2013robust} or even military applications \cite{liu2012physarum}.
 
-The case of researched in \cite{liu2012physarum} is one, where a certain area is populated with environment monitoring sensors. The purpose of the sensor network is to detect possible intruders in the monitored area. The goal of the paper is to find the path between two target points going through an area with the least sensor coverage and hence the least risk of being detected by the sensors. This path represents the minimal exposure path. By identifying the least coverage paths one can find the weak spots of the covered area and add the least amount of new sensors that improve its coverage the most.
+The case of researched in \cite{liu2012physarum} is one, where a certain area is populated with environment monitoring sensors. The purpose of the sensor network is to detect possible intruders in the monitored area. The goal of the paper is to find the path between two target points going through an area with the least sensor coverage and hence the least risk of being detected by the sensors. This path represents the minimal exposure path. By identifying the minimal exposure paths one can find the weak spots of the covered area and add new sensors to that critical area, where they improve the areas coverage the most.
 
 \subsubsection{The biological system: Physarum Polycephalum}
-Physarum polycephalum is a large, single celled amoeba-like organism, which belongs to the group of slime molds \cite{liu2012physarum}. In its body it has tube-like constructions that it uses to transfer nutrients, signals and even its own body mass. Physarum is known to avoid light. It has the ability to find optimal routes between food sources -- even if there would be a maze separating them \cite{nakagaki2000intelligence}. Considering its way of avoiding light, the optimal route means either the shortest route in a non-illuminated place, or in an inhomogenously lit environment the path with the minimum risk to be exposed to light.
+Physarum polycephalum is a large, single celled amoeba-like organism, which belongs to the family of slime molds \cite{liu2012physarum}. In its body it has tube-like constructions that it uses to transfer nutrients, signals and even its own body mass. Physarum is known to avoid light. It has the ability to find optimal routes between food sources -- even if there would be a maze separating them \cite{nakagaki2000intelligence}. In a dark, non-illuminated area the optimal route is the shortest route between the food sources. In an inhomogenously lit environment the optimal path is the one with the least risk of being exposed to light.
 
-
-locality and parallelism
-\subsubsection{Analogies and application: The Physarum Optimization Algorithm}
-The analogy between Physarum finding the shortest path between food sources in a inhomogenously illuminated field and the trying to find the path with the worst sensor coverage in a Wireless Sensor Network is simple. Physarum catching light can be considered a corresponing action to an intruder being exposed to a sensor, and the food sources of Physarum resemble the target points between the path in a WSN \cite{liu2012physarum}. Using these analogies the minimal exposure path problem of the WSNs can be solved using observations from Physarum's behaviour.
+\textit{TODO: Mention locality and parallelism of the physarums approach}
+\subsubsection{Analogies and application: The Physarum Optimization algorithm}
+The analogy between Physarum finding the shortest path between food sources in a inhomogenously illuminated field and the trying to find the path with the worst sensor coverage in a wireless sensor network is simple. Physarum catching light can be considered a corresponing action to an intruder being exposed to a sensor, and the food sources of Physarum resemble the target points between the possible path in a WSN \cite{liu2012physarum}. Using these analogies the minimal exposure path problem of the WSNs can be solved using observations from Physarum's behaviour.
 
 \section{Conclusion}
 
 \subsection{Comparison between ACO and PO}
-\textit{insert table with similarities and differences between the two}
+\textit{TODO: Insert more similarities and differences between the two approaches.}
 \begin{table}[h]
 \begin{tabular}{|l|l|l|}
 \hline
                                          & \textbf{Ant Colony Optimization, A-ESR}       & \textbf{Physarum Optimization}              \\ \hline
 \textbf{View point on biological system} & High level                                    & Low level                                   \\ \hline
-\textbf{Application field}               & Computer networking, Energy efficient routing & Wireless Sensor Networks, Intrusion detection, Maximum network coverage \\ \hline
+\textbf{Application field}               & Computer networking, Energy efficient routing & Wireless Sensor Networks, Minimal exposure path \\ \hline
                                          &                                               &                                             \\ \hline
 \end{tabular}
 \end{table}
@@ -106,17 +108,17 @@ The analogy between Physarum finding the shortest path between food sources in a
 \subsection{Is there a general difference between high and low level inspired approaches?}
 \textit{What is the difference? Is either one better? Are low level functions more advanced?}
 
-The wanted result of bio-inspired approaches is to design a working solution based on only a simple set of rules \cite{dressler2010bio}. Hence it should not make a difference whether the chosen approach was inspired by higher or lower level functions of biological systems.
+The desired result of bio-inspired approaches is to design a working solution based on only a simple set of rules \cite{dressler2010bio}. Hence it should not make a difference whether the chosen approach was inspired by higher or lower level functions of biological systems. It is more appropriate to classify different bio-inspired solutions by the problems they are solving. Hylsberg et al describe in their article \cite{hylsberg2011bioinspired} how different biological systems and principles have been successfully applied in different contexts. Swarm intelligence has for instance been applied in routing in computer networks, optimal node deployment, node localization, and network clustering, where as the artificial immune system has been applied in misbehavior detection and intrusion detection systems.
 
-\textit{rubbish?}
-Hylsberg et al describe in their article \cite{hylsberg2011bioinspired} how different biological systems and principles have been successfully applied in different contexts. Swarm intelligence, which includes Ant Colony Optimization, has usually been applied in routing in computer networks, optimal node deployment, node localization, and network clustering. Intercellular communication, which the writer of this paper believes to be the closest of the mentioned biological prinicples to Physarum, has been applied in coordination and control in distributed systems, network clustering, and security and privacy. Although intercellular communication seems like the best of the four categories (Swarm intelligence, Firefly synchronization, Artificial immune system, Intercellular communication) in the article, it is a bit forced since physarum polycephalum is a single celled organism and hence does not really communicate with other cells. ...?
+\subsection{Why the explained bio-inspired approaches are used and why they are efficient}
+\textit{TODO: in the case of physarum, mention locality and parallelism, in ACO mention decentralized control and self-organization.}
 
-\textit{
-\begin{itemize}
-	\item Why the explained bio-inspired approaches are used / why they are good.
-	\item Some future aspects on possible directions of bio-inspired networking.
-\end{itemize}
-}
+\subsection{Future aspects}
+As the A-ESR algorithm is used to save energy consumption of network elements routing Internet traffic, it might be worth investigating whether it would be as useful in the field of wireless sensor networks as well. One of the most important limiting factors in WSN is the limited available energy, which sets its challenges to the design of the used routing protocols \cite{hylsberg2011bioinspired}. There has been research for energy effieciency in the WSN field \cite{wightman2008a3}, but it would be interesting to see whether the A-ESR approach would also be applicable there.
+
+\textit{TODO: add reasons pro / con.}
+
+\textit{Could Physarum Optimization be used in networking / routing? Are there possible applications of the minimal exposure path in those fields?}
 
 %============================================================
 
