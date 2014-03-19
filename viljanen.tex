@@ -48,49 +48,66 @@ Bio-inspired approaches offer qualities attractive to the networking field. They
 Biological systems often have a small set of simple rules that can be used to create complex behavior \cite{dressler2010bio} for solving challenging problems. These solutions usually include qualities such as self-organization \cite{kroeker2011biology}, adaptation to changing environmental conditions, fault tolerance, efficient management of scarce resources, collaboration and survival to harsh conditions \cite{dressler2010bio}.
 
 \section{Background}
+
+\subsection{Developing a bio-inspired approach}
+Developing a bioinspired approach for engineering issues is divided into three steps \cite{dressler2010bio}. First one needs to identify the analogies between the target technical environment and the biological system. How do the different players, structures and methods in the biological system correspond to the ones in the technical field? Are there similarities? After finding the analogies the next step is to research the biological system and try to understand it and its functions in a detailled and precise way. The third step is usually to generalize the biological model and to apply it to the chosen technical field, hence to define the bio-inspired solution.
+
 \textit{Definitions of commonly used terms here.}
-\subsection{Wireless Sensor Network}
-Wireless Sensor Networks consist of sensor nodes geographically distributed on an area \cite{nazi2013robust}. These sensor nodes collect data from their environment, process it by doing aggregation and filtering and forward it to other recievers in the network they are connected in. For WSNs it is important to be fault tolerant, since network failures may occurr for example due to one of its nodes running out of power. WSNs may be used in contexts of smart healthcare, disaster management, environment monitoring \cite{nazi2013robust} or even military applications \cite{liu2012physarum}.
-
-\cite{kroeker2011biology}, \cite{liu2012physarum}, \cite{nazi2013robust}
-
-
 
 \section{Results}
 
+In the results we will describe more closely two different bio-inspired approaches: Ant Colony Optimization and Physarum Optimization. Both are optimization algorithms based on foraging of a biological system. Ant Colony Optimization is a text book example of a bio-inspired approach based on a higher level understanding of a biological system: foraging ants. Physarum Optimization  in turn is based on lower level understanding on how simple cellular organisms work and the evolution of its behaviour \cite{liu2012physarum}.
+
 \textit{
 \begin{itemize}
-	\item List approaches here.
-	\item How does their archetype in the biological system work?
-	\item How is it applied?
-	\item Explain the alogrithm.
+	\item Explain the technical problem and its context.
+	\item Explain the biological system
+	\item Explain the analogies of the two.
+	\item Explain the bio-inspired solution for the technical problem.
 \end{itemize}
 }
 
-\subsection{Bio-inspired solutions from high level functions of biologial systems}
-\subsubsection{Ant Colony Optimization}
-A classic application of Ant Colony Optimization (ACO) was the AntNet routing protocol that was able to exploit ACO making the protocol function more efficiently and without an outside controlling unit \cite{di1998antnet}.
-\cite{kroeker2011biology}
-More recently a new routing scheme called A-ESR has been proposed to make network elements and hence the whole Internet to be more energy efficient \cite{kim2012ant}, \cite{kim2011ant}.
+\subsection{Ant Colony Optimization}
+A classic application of Ant Colony Optimization (ACO) was the AntNet routing protocol that was able to exploit ACO making the protocol function more efficiently and without an outside controlling unit \cite{di1998antnet}. More recently a new routing scheme called A-ESR has been proposed to make network elements and hence the whole Internet to be more energy efficient \cite{kim2012ant}, \cite{kim2011ant}. We will study the more recent application.
 
-\subsection{Bio-inspired solutions from low level functions of biologial systems}
-\subsubsection{Neurologic development of fruit-flies}
-\cite{dressler2010bio}
+\subsubsection{The technical problem and its context: Wireless Sensor Networks}
+...
 
-\subsubsection{Physarum Optimization}
+\subsection{Physarum Optimization}
 The Physarum Optimization approach exploits the cellular computation model of the slime mold physarum polycephalum in wireless sensor networks (WSN) \cite{liu2012physarum}. It is used to solve the minimal exposure path problem of WSNs, which relateds to their worst case coverage. The approach is claimed to be simple and highly concurrent. It should also be useful for designing new graph-algorithms, routing protocols and Self-Organizing Network (SON) topologies.
 
+\subsubsection{The technical problem and its context: Wireless Sensor Networks}
+Wireless Sensor Networks consist of sensor nodes geographically distributed on an area \cite{nazi2013robust}. These sensor nodes collect data from their environment, process it by doing aggregation and filtering and forward it to other recievers in the network they are connected in. For WSNs it is important to be fault tolerant, since network failures may occurr for example due to one of its nodes running out of power. WSNs may be used in contexts of smart healthcare, disaster management, environment monitoring \cite{nazi2013robust} or even military applications \cite{liu2012physarum}.
+
+\subsubsection{The biological system: Physarum Polycephalum}
+Physarum polycephalum is a large, single celled amoeba-like organism, which belongs to the group of slime molds \cite{liu2012physarum}. In its body it has tube-like constructions that it uses to transfer nutrients, signals and even its own body mass. Physarum is known to avoid light. It has the ability to find optimal routes between food sources -- even if there would be a maze separating them \cite{nakagaki2000intelligence}. Considering its way of avoiding light, the optimal route means either the shortest route in a non-illuminated place, or in an inhomogenously lit environment the path with the minimum risk to be exposed to light.
 
 
-
+locality and parallelism
+\subsubsection{Analogies and application: The Physarum Optimization Algorithm}
 
 
 \section{Conclusion}
+
+\subsection{Comparison between ACO and PO}
+\textit{insert table with similarities and differences between the two}
+\begin{table}[h]
+\begin{tabular}{|l|l|l|}
+\hline
+                                         & \textbf{Ant Colony Optimization, A-ESR}       & \textbf{Physarum Optimization}              \\ \hline
+\textbf{View point on biological system} & High level                                    & Low level                                   \\ \hline
+\textbf{Application field}               & Computer networking, Energy efficient routing & Wireless Sensor Networks, Intrusion detection \\ \hline
+                                         &                                               &                                             \\ \hline
+\end{tabular}
+\end{table}
 
 \subsection{Is there a general difference between high and low level inspired approaches?}
 \textit{What is the difference? Is either one better? Are low level functions more advanced?}
 
 The wanted result of bio-inspired approaches is to design a working solution based on only a simple set of rules \cite{dressler2010bio}. Hence it should not make a difference whether the chosen approach was inspired by higher or lower level functions of biological systems.
+
+\textit{rubbish?}
+Hylsberg et al describe in their article \cite{hylsberg2011bioinspired} how different biological systems and principles have been successfully applied in different contexts. Swarm intelligence, which includes Ant Colony Optimization, has usually been applied in routing in computer networks, optimal node deployment, node localization, and network clustering. Intercellular communication, which the writer of this paper believes to be the closest of the mentioned biological prinicples to Physarum, has been applied in coordination and control in distributed systems, network clustering, and security and privacy. Although intercellular communication seems like the best of the four categories (Swarm intelligence, Firefly synchronization, Artificial immune system, Intercellular communication) in the article, it is a bit forced since physarum polycephalum is a single celled organism and hence does not really communicate with other cells. ...?
 
 \textit{
 \begin{itemize}
