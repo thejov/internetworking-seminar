@@ -7,6 +7,7 @@
 
 \usepackage[hyphenbreaks]{breakurl}
 \usepackage{hyperref}
+\usepackage{tabularx}
 \begin{document}
 
 %=========================================================
@@ -69,12 +70,23 @@ Ant Colony Optimization (ACO) is a form of bio-inspired solutions from the group
 The Internet infrastructure is consuming more and more energy every year. In year 2008 studies were published that showed that the Internet had a share of about 5.5\% of the worlds total energy consumption. This share was expected to grow at a rate of 20-25\% annually \cite{proceedings2008energy}. A big part of Internets power consumpiton could be cut off by optimizing network elements to be more energy-efficient \cite{andrews2010routing}. Network elements use the same amount of power regardless of whether there is a lot of traffic going through them during peak hours, or when they are in an idle state during low traffic hours \cite{gupta2007using}.
 
 \subsubsection{The biological system: Foraging ant colonies}
-\textit{TODO: add content here. already explained on a high level in the Introduction.}
+Foraging ants of an ant colony are able to over time find the shortest paths from their nest to food sources in its environment \cite{dorigo1999ant, goss1989self}. They do this using indirect, local communication called stigmergy \cite{grasse1959reconstruction}. While moving between their nest and a food source the ants leave behind a chemical substance called pheromone \cite{ghosh2008aggregation}. A ant following a shorter path can complete it more frequently than one following a longer one. Hence the shorter paths get stronger pheromone trails.
+
+Ants prefer to move to a direction that has the most intense pheromone trace, which usually is the shortest path to a food source. This way the shortest paths quickly get significantly stronger pheromone trails and will attract even more ants. Over time the pheromone fades away. Hence longer routes or paths to food sources that have run out will completely fade away over time. A part of the ants does random searches to be able to find new food sources or new, shorter paths to old food sources \cite{dressler2010bio}.
 
 \subsubsection{Analogies and application: The A-ESR algorithm}
 A-ESR stands for self-adaptive energy saving routing \cite{kim2012ant}. The analogies between the foraging ant colony and Internet routing are the following: The ant colony is a rather abstract structure that exists in the network. Foraging ants are represented by so called artificial ants, that traverse thourgh the network to find out the delays between network elements and the fastest routes between two nodes. Data structures called Pheromone tables are stored in each network node. They store the desirabilities of travesing to a node i next to the current node j, when the packet destination is node j.
 
 The advantages of the A-ESR algorithm are its means to self-adjust against wrong measures and the ability to continuously keep track about the network status.
+
+% explain basic AOC principles (Saleem et al) and state how A-ESR differs from those.
+%-tehdään ns path sämpläystä, eli kokeillaan eri polkuja eri pisteiden välillä.
+%	-sämpläys toteutetaan forward ja backward anteilla (agenteilla)
+%		-forward ant liikkuu feromonijälkien "suositusten" ja lokaalin heuristiikkafunktion yhdistelmää (stochastic rule) käyttäen kohti seuraavaa nodea pisteestä pisteeseen b. paremmaksi merkittyjä polkuja suositaan siis paremmalla todennäköisyydellä.
+%		-fw ant kerää samalla tietoa reitistä.
+%		-saavuttuaan maaliin ns backward ant menee samaa reittiä takaisin ja päivittää joka noden feromonitauluja.
+%-feromonitaulussa on tieto siitä, miten hyvä reitti on mennä naapurinoden kautta määränpäähän.
+%mitkä ovat A-ESR:n erot normi AOC:iin verrattuna?
 
 \subsection{Physarum Optimization}
 The Physarum Optimization approach exploits the cellular computation model of the slime mold physarum polycephalum in wireless sensor networks (WSN) \cite{liu2012physarum}. It is used to solve the minimal exposure path problem of WSNs, which relateds to their worst case coverage. The approach is claimed to be simple and highly concurrent. It should also be useful for designing new graph-algorithms, routing protocols and self-organizing network (SON) topologies.
@@ -95,13 +107,22 @@ The analogy between Physarum finding the shortest path between food sources in a
 
 \subsection{Comparison between ACO and PO}
 \textit{TODO: Insert more similarities and differences between the two approaches.}
+
+% http://tex.stackexchange.com/questions/32694/table-exceeds-page
+\begin{tabularx}{\linewidth}{|l|l|l|}
+\hline & \textbf{Ant Colony Optimization, A-ESR} & \textbf{Physarum Optimization} \\ \hline
+\textbf{View point on biological system} & High level & Low level \\ \hline
+\textbf{Application field} & Computer networking, Energy efficient routing & Wireless Sensor Networks, Minimal exposure path \\ \hline
+Locality (no central control necessary). Allows easy parallelity. & Locality (no central control necessary). Allows easy parallelity. \\ \hline
+\end{tabularx}
+
 \begin{table}[h]
 \begin{tabular}{|l|l|l|}
 \hline
                                          & \textbf{Ant Colony Optimization, A-ESR}       & \textbf{Physarum Optimization}              \\ \hline
 \textbf{View point on biological system} & High level                                    & Low level                                   \\ \hline
 \textbf{Application field}               & Computer networking, Energy efficient routing & Wireless Sensor Networks, Minimal exposure path \\ \hline
-                                         &                                               &                                             \\ \hline
+Locality (no central control necessary). Allows easy parallelity. & Locality (no central control necessary). Allows easy parallelity. \\ \hline
 \end{tabular}
 \end{table}
 
@@ -114,7 +135,9 @@ The desired result of bio-inspired approaches is to design a working solution ba
 \textit{TODO: in the case of physarum, mention locality and parallelism, in ACO mention decentralized control and self-organization.}
 
 \subsection{Future aspects}
-As the A-ESR algorithm is used to save energy consumption of network elements routing Internet traffic, it might be worth investigating whether it would be as useful in the field of wireless sensor networks as well. One of the most important limiting factors in WSN is the limited available energy, which sets its challenges to the design of the used routing protocols \cite{hylsberg2011bioinspired}. There has been research for energy effieciency in the WSN field \cite{wightman2008a3}, but it would be interesting to see whether the A-ESR approach would also be applicable there.
+As the A-ESR algorithm is used to save energy consumption of network elements routing Internet traffic, it might be worth investigating whether it would be as useful in the field of wireless sensor networks as well. One of the most important limiting factors in WSN is the limited available energy, which sets its challenges to the design of the used routing protocols \cite{hylsberg2011bioinspired}.
+
+Many applications using Ant Colony Optimization in WSNs have been proposed \cite{bennis2013enhanced, zhang2004improvements, camilo2006energy, cai2006aco, sun2008asar, kiri2007self, ghasemaghaei2007ant}. These approaches have different goals ranging from fault tolerance \cite{zhang2004improvements} to reliability and scalability \cite{kiri2007self}. Many of the ACO based algorithms applied in WSN are energy aware \cite{saleem2011swarm}. Also completly othe solutions not applying bio-inspired approaches have been researched for energy effieciency in the WSN field \cite{wightman2008a3}. It would be interesting to see whether the A-ESR approach would be applicable in there and how it would perform in comparison to the other enegry efficient solutions.
 
 \textit{TODO: add reasons pro / con.}
 
