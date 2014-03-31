@@ -82,7 +82,7 @@ Forward ants are created concurrently and independently at different nodes of th
 Once a forward ant reaches its destination a backward ant is created to traverse the same way back to the origin of the forward node. On its way it will update the so called pheromone tables of each node. The pheromone tables are data structures that contain information on how good routes to different destinations traversing through its neighbour nodes are, i.e. the desirability of travesing to a node, i, next to the current node, j, when the packet destination is node j. The forward ants going through a node will choose the target of their next jump based on a stochastic rule that gives a higher probability to neighbour nodes that have stronger pheromone trails, i.e. are suggested by the pheromone table as an optimal path to the agents destination. The stochastic rule also applies a local heuristic function differing between ACO implentations. This way the exploration of new paths as well as load balancing of different routes can be accomplished.
 
 \begin{table}
-	\begin{tabularx}{\textwidth}{|X|X|X|}
+	\begin{tabularx}{\linewidth}{|X|X|X|}
 		\hline & \textbf{Foraging ant colony} & \textbf{Ant Colony Optimization} \\ \hline
 		\textbf{Context} & Foraging ant colony & Networking \\ \hline
 		\textbf{Problem} & Finding optimal paths to food sources & Finding optimal paths between network elements \\ \hline
@@ -115,7 +115,7 @@ Physarum polycephalum is a large, single celled amoeba-like organism which belon
 The analogy between Physarum finding the shortest path between food sources in an inhomogenously illuminated field and the trying to find the path having the worst sensor coverage in a wireless sensor network is simple. In the biological system the desired result is that Physarum does not catch light on his way to the food source. In the wireless sensor networks this corresponds to an intruder that does not want to be exposed to sensors while traversing between the selected target points in a sensor-covered area \cite{liu2012physarum}. Using these analogies the minimal exposure path problem of the WSNs can be solved using observations from Physarum's behaviour.
 
 \begin{table}
-	\begin{tabularx}{\textwidth}{|X|X|X|}
+	\begin{tabularx}{\linewidth}{|X|X|X|}
 		\hline & \textbf{Foraging Physarum Polycephalum} & \textbf{Physarum Optimization} \\ \hline
 		\textbf{Context} & Foraging slime mold & Wireless Sensor Networks \\ \hline
 		\textbf{Problem} & Finding optimal paths to food sources & Finding optimal paths between to predefined points \\ \hline
@@ -132,7 +132,7 @@ The analogy between Physarum finding the shortest path between food sources in a
 \subsection{Comparison between ACO and PO}
 \textit{TODO: Insert more similarities and differences between the two approaches.}
 
-\begin{tabularx}{\textwidth}{|X|X|X|}
+\begin{tabularx}{\linewidth}{|X|X|X|}
 \hline & \textbf{Ant Colony Optimization, A-ESR} & \textbf{Physarum Optimization} \\ \hline
 \textbf{View point on biological system} & High level & Low level \\ \hline
 \textbf{Application field} & Computer networking, Energy efficient routing & Wireless Sensor Networks, Minimal exposure path \\ \hline
