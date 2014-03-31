@@ -79,6 +79,17 @@ A-ESR stands for self-adaptive energy saving routing \cite{kim2012ant}. The anal
 
 The advantages of the A-ESR algorithm are its means to self-adjust against wrong measures and the ability to continuously keep track about the network status.
 
+This paper will first go through the classic Ant Colony Optimization algorithm and how it works. Then it will describe, how the A-ESR algorithm differs from that and hence, what new value it brings. 
+
+\subsubsubsection{How the classic Ant Colony Optimization algorithm works}
+The idea behind classic AOC algorithm is to do path sampling in a network \cite{di2004ant, di2008theory}. The sampling is done traversing control data packets through the network and recording the performance and delays between each node. The control packages are generally referred to as agents or artificial ants. They will try out different paths between two arbitary points in the network. We distinct two types of agents: forward and backward ants.
+
+Forward ants are created concurrently and independently at different nodes of the network. They have a predefined, but randomly chosen destination that they traverse to starting from the node they were created in. On their way to the destination they will follow a set of rules to find optimal routes. They gather information on all the delays between each jump between nodes.
+
+Once a forward ant reaches its destination a backward ant is created to traverse the same way back to the origin of the forward node. On its way it will update the so called pheromone tables of each node. The pheromone tables contain information on how good routes to different destinations traversing through its neighbour nodes are. The forward ants going through a node will choose the target of their next jump based on a stochastic rule that gives a higher probability to neighbour nodes that have stronger pheromone trails, i.e. are suggested by the pheromone table as an optimal path to the agents destination. The stochastic rule also applies a local heuristic function differing between ACO implentations. This way the exploration of new paths as well as load balancing of different routes can be accomplished.
+
+
+
 % explain basic AOC principles (Saleem et al) and state how A-ESR differs from those.
 %-tehdään ns path sämpläystä, eli kokeillaan eri polkuja eri pisteiden välillä.
 %	-sämpläys toteutetaan forward ja backward anteilla (agenteilla)
@@ -87,6 +98,9 @@ The advantages of the A-ESR algorithm are its means to self-adjust against wrong
 %		-saavuttuaan maaliin ns backward ant menee samaa reittiä takaisin ja päivittää joka noden feromonitauluja.
 %-feromonitaulussa on tieto siitä, miten hyvä reitti on mennä naapurinoden kautta määränpäähän.
 %mitkä ovat A-ESR:n erot normi AOC:iin verrattuna?
+
+\subsubsubsection{How the A-ESR algorithm differs from classic AOC}
+% explain what's new in A-ESR
 
 \subsection{Physarum Optimization}
 The Physarum Optimization approach exploits the cellular computation model of the slime mold physarum polycephalum in wireless sensor networks (WSN) \cite{liu2012physarum}. It is used to solve the minimal exposure path problem of WSNs, which relateds to their worst case coverage. The approach is claimed to be simple and highly concurrent. It should also be useful for designing new graph-algorithms, routing protocols and self-organizing network (SON) topologies.
