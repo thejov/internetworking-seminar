@@ -74,6 +74,30 @@ Foraging ants of an ant colony are able to over time find the shortest paths fro
 
 Ants prefer to move to a direction that has the most intense pheromone trace, which usually is the shortest path to a food source. This way the shortest paths quickly get significantly stronger pheromone trails and will attract even more ants. Over time the pheromone fades away. Hence longer routes or paths to food sources that have run out will completely fade away over time. A part of the ants does random searches to be able to find new food sources or new, shorter paths to old food sources \cite{dressler2010bio}.
 
+\subsubsection{Analogies and application: Basic concepts of ACO}
+The idea behind classic Ant Colony Optimization algorithm is to do path sampling in a network \cite{di2004ant, di2008theory}. The sampling is done traversing control data packets through the network and recording the performance and delays between each node. The control packages are generally referred to as agents or artificial ants. They will try out different paths between two arbitary points in the network. We distinct two types of agents: forward and backward ants.
+
+Forward ants are created concurrently and independently at different nodes of the network. They have a predefined, but randomly chosen destination that they traverse to starting from the node they were created in. On their way to the destination they will follow a set of rules to find optimal routes. They gather information on all the delays between each jump between nodes.
+
+Once a forward ant reaches its destination a backward ant is created to traverse the same way back to the origin of the forward node. On its way it will update the so called pheromone tables of each node. The pheromone tables contain information on how good routes to different destinations traversing through its neighbour nodes are. The forward ants going through a node will choose the target of their next jump based on a stochastic rule that gives a higher probability to neighbour nodes that have stronger pheromone trails, i.e. are suggested by the pheromone table as an optimal path to the agents destination. The stochastic rule also applies a local heuristic function differing between ACO implentations. This way the exploration of new paths as well as load balancing of different routes can be accomplished.
+
+\begin{table}
+	\begin{tabularx}{\textwidth}{|X|X|X|}
+		\hline & \textbf{Foraging ant colony} & \textbf{Ant Colony Optimization} \\ \hline
+		\textbf{Context} & Foraging ant colony & Networking \\ \hline
+		\textbf{Problem} & Finding optimal paths to food sources & Finding optimal paths between network elements \\ \hline
+		\textbf{Players} & Ants & Agents: forward and backward ants \\ \hline
+		\textbf{Targets} & Food sources & Predefined destinations of each forward ant \\ \hline
+		\textbf{Communication method} & Trails of chemical substance called pheromone & Numerical values written by backward ants to tables of each network element \\ \hline
+	\end{tabularx}
+	\caption{Analogies between foraging anto colonies and the Ant Colony Optimization algorithm}
+	\label{tbl:analogies_ant}
+\end{table}
+
+\subsubsection{How the A-ESR algorithm differs from classic AOC}
+% explain what's new in A-ESR
+
+
 \subsubsection{Analogies and application: The A-ESR algorithm}
 A-ESR stands for self-adaptive energy saving routing \cite{kim2012ant}. The analogies between the foraging ant colony and Internet routing are the following: The ant colony is a rather abstract structure that exists in the network. Foraging ants are represented by so called artificial ants, that traverse thourgh the network to find out the delays between network elements and the fastest routes between two nodes. Data structures called Pheromone tables are stored in each network node. They store the desirabilities of travesing to a node i next to the current node j, when the packet destination is node j.
 
@@ -81,26 +105,7 @@ The advantages of the A-ESR algorithm are its means to self-adjust against wrong
 
 This paper will first go through the classic Ant Colony Optimization algorithm and how it works. Then it will describe, how the A-ESR algorithm differs from that and hence, what new value it brings. 
 
-\subsubsubsection{How the classic Ant Colony Optimization algorithm works}
-The idea behind classic AOC algorithm is to do path sampling in a network \cite{di2004ant, di2008theory}. The sampling is done traversing control data packets through the network and recording the performance and delays between each node. The control packages are generally referred to as agents or artificial ants. They will try out different paths between two arbitary points in the network. We distinct two types of agents: forward and backward ants.
 
-Forward ants are created concurrently and independently at different nodes of the network. They have a predefined, but randomly chosen destination that they traverse to starting from the node they were created in. On their way to the destination they will follow a set of rules to find optimal routes. They gather information on all the delays between each jump between nodes.
-
-Once a forward ant reaches its destination a backward ant is created to traverse the same way back to the origin of the forward node. On its way it will update the so called pheromone tables of each node. The pheromone tables contain information on how good routes to different destinations traversing through its neighbour nodes are. The forward ants going through a node will choose the target of their next jump based on a stochastic rule that gives a higher probability to neighbour nodes that have stronger pheromone trails, i.e. are suggested by the pheromone table as an optimal path to the agents destination. The stochastic rule also applies a local heuristic function differing between ACO implentations. This way the exploration of new paths as well as load balancing of different routes can be accomplished.
-
-
-
-% explain basic AOC principles (Saleem et al) and state how A-ESR differs from those.
-%-tehdään ns path sämpläystä, eli kokeillaan eri polkuja eri pisteiden välillä.
-%	-sämpläys toteutetaan forward ja backward anteilla (agenteilla)
-%		-forward ant liikkuu feromonijälkien "suositusten" ja lokaalin heuristiikkafunktion yhdistelmää (stochastic rule) käyttäen kohti seuraavaa nodea pisteestä pisteeseen b. paremmaksi merkittyjä polkuja suositaan siis paremmalla todennäköisyydellä.
-%		-fw ant kerää samalla tietoa reitistä.
-%		-saavuttuaan maaliin ns backward ant menee samaa reittiä takaisin ja päivittää joka noden feromonitauluja.
-%-feromonitaulussa on tieto siitä, miten hyvä reitti on mennä naapurinoden kautta määränpäähän.
-%mitkä ovat A-ESR:n erot normi AOC:iin verrattuna?
-
-\subsubsubsection{How the A-ESR algorithm differs from classic AOC}
-% explain what's new in A-ESR
 
 \subsection{Physarum Optimization}
 The Physarum Optimization approach exploits the cellular computation model of the slime mold physarum polycephalum in wireless sensor networks (WSN) \cite{liu2012physarum}. It is used to solve the minimal exposure path problem of WSNs, which relateds to their worst case coverage. The approach is claimed to be simple and highly concurrent. It should also be useful for designing new graph-algorithms, routing protocols and self-organizing network (SON) topologies.
@@ -117,28 +122,30 @@ Physarum polycephalum is a large, single celled amoeba-like organism, which belo
 \subsubsection{Analogies and application: The Physarum Optimization algorithm}
 The analogy between Physarum finding the shortest path between food sources in a inhomogenously illuminated field and the trying to find the path with the worst sensor coverage in a wireless sensor network is simple. Physarum catching light can be considered a corresponing action to an intruder being exposed to a sensor, and the food sources of Physarum resemble the target points between the possible path in a WSN \cite{liu2012physarum}. Using these analogies the minimal exposure path problem of the WSNs can be solved using observations from Physarum's behaviour.
 
+\begin{table}
+	\begin{tabularx}{\textwidth}{|X|X|X|}
+		\hline & \textbf{Foraging Physarum Polycephalum} & \textbf{Physarum Optimization} \\ \hline
+		\textbf{Context} & Foraging slime mold & Wireless Sensor Networks \\ \hline
+		\textbf{Problem} & Finding optimal paths to food sources & Finding optimal paths between to predefined points \\ \hline
+		\textbf{What defines an optimal path} & A path that has the least amount of light & A path with the least sensor coverage \\ \hline
+		\textbf{Players} & Physarum & Intruder \\ \hline
+		\textbf{Targets} & Food sources & Predefined destinations \\ \hline
+	\end{tabularx}
+	\caption{Analogies between foraging Physarum Polycephalum and the Physarum Optimization algorithm}
+	\label{tbl:analogies_physarum}
+\end{table}
+
 \section{Conclusion}
 
 \subsection{Comparison between ACO and PO}
 \textit{TODO: Insert more similarities and differences between the two approaches.}
 
-% http://tex.stackexchange.com/questions/32694/table-exceeds-page
-\begin{tabularx}{\linewidth}{|l|l|l|}
+\begin{tabularx}{\textwidth}{|X|X|X|}
 \hline & \textbf{Ant Colony Optimization, A-ESR} & \textbf{Physarum Optimization} \\ \hline
 \textbf{View point on biological system} & High level & Low level \\ \hline
 \textbf{Application field} & Computer networking, Energy efficient routing & Wireless Sensor Networks, Minimal exposure path \\ \hline
-Locality (no central control necessary). Allows easy parallelity. & Locality (no central control necessary). Allows easy parallelity. \\ \hline
+\textbf{Control system} & Locality (no central control necessary). Allows easy parallelity. & Locality (no central control necessary). Allows easy parallelity. \\ \hline
 \end{tabularx}
-
-\begin{table}[h]
-\begin{tabular}{|l|l|l|}
-\hline
-                                         & \textbf{Ant Colony Optimization, A-ESR}       & \textbf{Physarum Optimization}              \\ \hline
-\textbf{View point on biological system} & High level                                    & Low level                                   \\ \hline
-\textbf{Application field}               & Computer networking, Energy efficient routing & Wireless Sensor Networks, Minimal exposure path \\ \hline
-Locality (no central control necessary). Allows easy parallelity. & Locality (no central control necessary). Allows easy parallelity. \\ \hline
-\end{tabular}
-\end{table}
 
 \subsection{Is there a general difference between high and low level inspired approaches?}
 \textit{What is the difference? Is either one better? Are low level functions more advanced?}
