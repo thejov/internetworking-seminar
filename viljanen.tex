@@ -151,11 +151,10 @@ WSNs can consist of sensors, let us say motion detectors, that aim to detect int
     \label{fig:physarum}
 \end{figure*}
 
-Physarum polycephalum is a large, single celled amoeba-like organism which belongs to the family of slime molds \cite{liu2012physarum}. Its body has tube-like constructions that it uses to transfer nutrients, signals. Physarum moves by transporting body mass in these tubes. Physarum is known to avoid light. It has the ability to find optimal routes between food sources -- even if there were a maze separating them \cite{nakagaki2000intelligence}. In a dark, non-illuminated area the optimal route is the shortest route between the food sources. In an unevenly lit environment the optimal path is the one with the least risk of being exposed to light. As figure \ref{fig:physarum} shows, physarum polycephalum can also be seen with the bare eye without using microscopes.
+Physarum polycephalum is a large, single-celled amoeba-like organism which belongs to the family of slime molds \cite{liu2012physarum}. Its body has tube-like constructions that it uses to transfer nutrients, signals. Physarum moves by transporting body mass in these tubes. Physarum is known to avoid light. It has the ability to find optimal routes between food sources -- even if there were a maze separating them \cite{nakagaki2000intelligence}. In a dark, non-illuminated area the optimal route is the shortest route between the food sources. In an unevenly lit environment the optimal path is the one with the least risk of being exposed to light. As figure \ref{fig:physarum} shows, physarum polycephalum can also be seen with the bare eye without using microscopes.
 
-Physarum polycephalum exists as a single celled organism for as long as it has enough food sources available. When food sources are scarce they start signaling each other to join and form a group. As a group they are able to function as a single body or more precisely a multicellular mass. In this state they are more sensitive to airbourne chemicals and can hence find food sources better. Frederick Spiegel, a biology professor at the University of Arkansas and an expert on slime molds describes a moving group of physarum looking like a "moving sausage" \cite{spiegel2012slimemold}.
+Physarum polycephalum exists as a single-celled organism for as long as it has enough food sources available. When food sources are scarce they start signaling each other to join and form a group. As a group they are able to function as a single body or more precisely a multicellular mass. In this state they are more sensitive to airbourne chemicals and can hence find food sources better. Frederick Spiegel, a biology professor at the University of Arkansas and an expert on slime molds describes a moving group of physarum looking like a "moving sausage" \cite{spiegel2012slimemold}.
 
-\textit{TODO: Mention locality and parallelism of the physarums approach}
 \subsection{Analogies and application: The Physarum Optimization algorithm}
 The analogy between Physarum finding the shortest path between food sources in an inhomogenously illuminated field and the trying to find the path having the worst sensor coverage in a wireless sensor network is simple. In the biological system the desired result is that Physarum does not catch light on his way to the food source. In the wireless sensor networks this corresponds to an intruder that does not want to be exposed to sensors while traversing between the selected target points in a sensor-covered area \cite{liu2012physarum}. Using these analogies the minimal exposure path problem of the WSNs can be solved using observations from Physarum's behaviour.
 
@@ -181,12 +180,14 @@ The analogy between Physarum finding the shortest path between food sources in a
 	\begin{tabularx}{\linewidth}{|X|X|X|}
 		\hline & \textbf{Ant Colony Optimization, A-ESR} & \textbf{Physarum Optimization} \\ \hline
 		\textbf{View point on biological system} & High level & Low level \\ \hline
-		\textbf{Application field} & Computer networking, Energy efficient routing & Wireless Sensor Networks, Minimal exposure path \\ 	\hline
+		\textbf{Application field} & Computer networking, Energy efficient routing & Wireless Sensor Networks, Minimal sensor exposure path for sensors covered areas. \\ 	\hline
 		\textbf{Control system} & Locality (no central control necessary). Allows easy parallelity. & Locality (no central control necessary). Allows easy parallelity. \\ \hline
 	\end{tabularx}
 	\caption{Comparison of the A-ESR and Physarum Optimization algorithms}
 	\label{tbl:aco-po-comparison}
 \end{table*}
+
+As table \ref{tbl:aco-po-comparison} illustrates, the main benefits of both A-ESR and Physarum optimization are their autonomous ways of working, which enforces local calculation and direct communication. No global state has to be maintained for a central controlling unit, which allows easy parallellization of the performed activities.
 
 \subsection{Is there a general difference between high and low level inspired approaches?}
 \textit{What is the difference? Is either one better? Are low level functions more advanced?}
@@ -195,9 +196,6 @@ The comparison between Physarum Optimization and A-ESR indicate that there is no
 
 For example Hylsberg et al \cite{hylsberg2011bioinspired} list problem types and contexts that different biological systems are able to solve and have been successfully applied in. Swarm intelligence has, for instance, been applied to routing in computer networks, optimal node deployment, node localization, and network clustering, whereas the artificial immune system has been applied to misbehavior detection and intrusion detection systems.
 
-\subsection{Why the explained bio-inspired approaches are used and why they are efficient}
-\textit{TODO: in the case of physarum, mention locality and parallelism, in ACO mention decentralized control and self-organization.}
-
 \subsection{Future aspects}
 As the A-ESR algorithm is used to save energy consumption of network elements routing Internet traffic, it might be worth investigating whether it would be as useful in the field of wireless sensor networks as well. One of the most important limiting factors in WSN is the limited available energy, which sets its challenges to the design of the used routing protocols \cite{hylsberg2011bioinspired}.
 
@@ -205,7 +203,7 @@ Many applications using Ant Colony Optimization in WSNs have been proposed \cite
 
 \textit{TODO: add reasons pro / con.}
 
-\textit{Could Physarum Optimization be used in networking / routing? Are there possible applications of the minimal exposure path in those fields?}
+In \cite{liu2012physarum} the context of use for Physarum optimization is finding minimal sensor exposure paths in an area covered with sensors for example in the case of intruder detection with motion detectors. The authors indicate that the algorithm may also be applied in finding the shortest path in any kind of large scale graphs or inhomogeneous fields. An obvious place to try the algorithms performance would be to find minimal exposure paths of network coverage in WSNs or mobile networks. Once these are found one could improve the network coverage by adding new network elements to cover the area of the minimal exposure path.
 
 %============================================================
 
